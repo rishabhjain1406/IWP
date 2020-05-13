@@ -1,0 +1,17 @@
+<%= collection %>
+
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome </p>
+<form action="/users/dash_search" method="post">
+    <label for="medname">MED NAME</label>
+            <input
+              type="text"
+              id="medname"
+              name="medname"
+              class="form-control"
+              placeholder="Enter MED NAME"
+            />
+          </div>
+    <button type="submit" class="btn btn-primary btn-block">search</button>
+</form>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
