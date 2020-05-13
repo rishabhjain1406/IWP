@@ -1,4 +1,8 @@
-<%= collection %>
+
+<% practices.forEach(function (practice) { %>
+  <%= practice.med_name %> 
+  <a  class="btn btn-primary btn-xs" href="/users/delete/<%= practice._id %>"><i class="fa fa-edit"></i></a>
+<% }) %>
 
 <h1 class="mt-4">Dashboard</h1>
 <p class="lead mb-3">Welcome </p>

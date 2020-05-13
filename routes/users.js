@@ -1,6 +1,6 @@
 const express=require('express');
 const bcrypt=require('bcryptjs')
-
+const mongoose =require('mongoose');
 const router=express.Router();
 //models
 const Ngo=require('../models/ngo');
@@ -53,11 +53,11 @@ router.post('/login_ngo',(req,res) =>{
         });
     });
 });
-router.post('/dash_search',(req,res)=>{
-    var cursor=Med.find()
-    .then(results =>{
-        res.render('test', { collection:results } );
-    })
+router.get('/dash_search',(req,res)=>{
+    Med.find()
+    .then(result =>{
+        res.render('test',{practices :result});
+    });
 });
 
 
@@ -114,6 +114,16 @@ router.post('/dash_med', (req, res) => {
     res.render('dash_user');
 });
 
+
+
+router.get('/delete/:id',function(req,res){
+    var id=req.params.id;
+    var del=Med.findByIdAndDelete(id);
+    del.exec(function(err){
+        if(err) throw err;
+        res.render('dash_ngo');
+    });
+});
 
 
 
