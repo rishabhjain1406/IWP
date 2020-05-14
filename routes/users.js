@@ -13,7 +13,8 @@ router.get('/login_ngo',(req,res) => res.render('login_ngo'));
 router.get('/login_user',(req,res) => res.render('login_user'));
 router.get('/register_ngo',(req,res) => res.render('register_ngo'));
 router.get('/register_user',(req,res) => res.render('register_user'));
-
+router.get('/logout_ngo',(req,res)=>res.render('welcome'));
+router.get('/logout_user',(req,res)=>res.render('welcome'));
 
 
 
@@ -46,7 +47,7 @@ router.post('/login_ngo',(req,res) =>{
         bcrypt.compare(password,user.password,(err,isMatch)=>{
             if(err) throw err;
             if(isMatch){
-                res.render('dash_ngo');
+                res.render('dash_ngo',{user : ngoname});
             } else{
                 res.send('password incorrect');
             }

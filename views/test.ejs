@@ -1,21 +1,15 @@
-
+<table>
 <% practices.forEach(function (practice) { %>
-  <%= practice.med_name %> 
-  <a  class="btn btn-primary btn-xs" href="/users/delete/<%= practice._id %>"><i class="fa fa-edit"></i></a>
+  <tr>
+  <td><%= practice.med_name %></td>
+  <td><%= practice.med_invoice %></td>
+  <td><%= practice.med_expiry %></td>
+  <td><%= practice.user_contact %></td>
+  <td><%= practice.user_email %></td>
+  <td><a  class="btn btn-primary btn-xs" href="/users/delete/<%= practice._id %>"><i class="fa fa-edit"></i></a></td>
+  </tr>
 <% }) %>
 
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome </p>
-<form action="/users/dash_search" method="post">
-    <label for="medname">MED NAME</label>
-            <input
-              type="text"
-              id="medname"
-              name="medname"
-              class="form-control"
-              placeholder="Enter MED NAME"
-            />
-          </div>
-    <button type="submit" class="btn btn-primary btn-block">search</button>
-</form>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+</table>
+
+<a href="/users/logout_ngo" class="btn btn-secondary">Logout</a>
